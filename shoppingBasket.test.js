@@ -19,4 +19,12 @@ describe('getTotalPrice()', () => {
     basket.addItem(new Candy('Skittle', 3.99));
     expect(basket.getTotalPrice()).toEqual(12.97);
   });
+
+  it('returns total price with a discount', () => {
+    basket.applyDiscount(2);
+    expect(basket.getTotalPrice()).toEqual(10.97);
+  });
 });
+
+// Our class ShoppingBasket depends on the Candy class (because it calls a method or property from this class). 
+// We need to properly isolate it in our unit tests — use a JS object as a "mock" as explained above.
